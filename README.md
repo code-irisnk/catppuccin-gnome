@@ -67,7 +67,7 @@
 4. Select the theme in the extension.
 5. We're done! Be happy! yay!
 
-## 💝 Thanks to
+## :gift_heart: Thanks to
 
 - [Élise Souche](https://github.com/elisesouche)
 - [Lia Nkrichronos](https://github.com/liavnk)
