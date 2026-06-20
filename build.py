@@ -16,14 +16,17 @@ CSS_PATH = f"{OUT_GNOME_PATH}/gnome-shell.css"
 
 
 def check_args():
+  if len(sys.argv) < 2:
+    print("You have to specify your theme with -t")
+    exit(0)
   if sys.argv[1] != "-t":
-    print("invalid argument")
+    print("Invalid argument")
     exit(0)
   if len(sys.argv) != 3:
-    print("you need to specify a flavour")
+    print("You need to specify a flavour")
     exit(0)
   if sys.argv[2] not in ("latte", "frappe", "macchiato", "mocha"):
-    print("choose between latte, frappe, macchiato and mocha.")
+    print("Theme must be one of: latte, frappe, macchiato, mocha.")
     exit(0)
   global FLAVOUR, OUT_PATH, OUT_GNOME_PATH, CSS_PATH
   FLAVOUR = sys.argv[2]
@@ -137,6 +140,15 @@ def edit_palette():
     """)
   apply_patch("default-colors")
   apply_patch("colors")
+  with open(f"{OUT_PATH}/index.theme", "w") as f:
+    f.write(
+      f"""
+      [Desktop Entry]
+      Type=X-GNOME-Metatheme
+      Name=Catppuccin GNOME - {FLAVOUR.capitalize()}
+      Comment=GNOME Catppuccin {FLAVOUR.capitalize()} Theme
+      Encoding=UTF-8
+      """)
 
 
 def compile():
@@ -148,9 +160,6 @@ def compile():
 def build():
   print("Building CSS and finalizing theme build...")
   compile()
-  global OUT_PATH
-  shutil.copy("./index.theme", f"{OUT_PATH}/index.theme")
-
 
 def main():
   check_args()
