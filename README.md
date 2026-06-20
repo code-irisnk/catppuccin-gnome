@@ -1,49 +1,87 @@
-# gnome-catppuccin
+<h3 align="center">
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
+	Catppuccin for <a href="https://www.gnome.org">Gnome</a>
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
+</h3>
 
-This script edits the standard GNOME Shell stylesheets to apply the [Catppuccin](https://catppuccin.com) colorscheme. It generates a theme to be used with the [User Themes](https://extensions.gnome.org/extension/19/user-themes) shell extension.
+<p align="center">
+    <a href="https://github.com/code-irisnk/catppuccin-gnome/stargazers"><img src="https://img.shields.io/github/stars/code-irisnk/catppuccin-gnome?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+    <a href="https://github.com/code-irisnk/catppuccin-gnome/issues"><img src="https://img.shields.io/github/issues/code-irisnk/catppuccin-gnome?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+    <a href="https://github.com/code-irisnk/catppuccin-gnome/contributors"><img src="https://img.shields.io/github/contributors/code-irisnk/catppuccin-gnome?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+</p>
 
-## NixOS
+<p align="center">
+  <img src="assets/preview.webp"/>
+</p>
 
-The original maintainer packages this theme for Nix. **If** you run NixOS or its derivatives, **please** use [elisesouche/gnome-catppuccin/default.nix](https://github.com/elisesouche/gnome-catppuccin/blob/main/default.nix).
+## Previews
 
-## Distro-agnostic usage
+<details>
+<summary>:sunflower: Latte</summary>
+<img src="assets/latte.webp"/>
+</details>
+<details>
+<summary>:potted_plant: Frappé</summary>
+<img src="assets/frappe.webp"/>
+</details>
+<details>
+<summary>:hibiscus: Macchiato</summary>
+<img src="assets/macchiato.webp"/>
+</details>
+<details>
+<summary>:herb: Mocha</summary>
+<img src="assets/mocha.webp"/>
+</details>
 
-You need Python 3.13 with the libraries `libsass` and `diff_match_patch`.
+## Prerequisites
 
-### Clone this repository
+- [bash](https://www.gnu.org/software/bash/manual/bash.html)*
+- [python](https://docs.python.org/3)>=3.13
+- [pip](https://github.com/pypa/pip)*
+- [pipx](https://github.com/pypa/pipx)*
+- [gnome](https://www.gnome.org/)>=50
+- [user-themes](https://extensions.gnome.org/extension/19/user-themes/)*
 
-```bash
-git clone --recurse-submodules https://github.com/code-irisnk/catppuccin-gnome
-cd gnome-catppuccin
-```
+#### debian
+`sudo su - && apt update && apt install python3-full python3-pip`
 
-### Installing dependencies
+#### fedora
+`sudo dnf install python3-pip`
 
-#### Option 1: Pipenv + Pipfile.lock
+#### arch
+`sudo pacman -Sy python python-pip python-libsass python-diff-match-patch`
 
-```bash
-pip install pipenv
-pipenv install --deploy
-pipenv shell
-```
+#### void
+`sudo xbps-install -S python3 python3-pip`
 
-#### Option 2: venv + requirements.txt
+## Usage
 
-```bash
-python3.13 -m venv .venv
-source .venv/bin/activate
+1. Clone the repo:  
+   `export TMP=$(mktemp -d) && git clone --recurse-submodules -j2 https://github.com/code-irisnk/gnome-catppuccin.git "$TMP" && cd "$TMP"`
+2. Prepare environment:  
+   `pipenv lock && pipenv install --deploy && pipenv shell`
+3. Pick a flavour and run the script:  
+   `./build.py -t mocha`  
+   _^ theme can be found in "~/.themes/"_
+4. Select the theme in the extension.
+5. We're done! Be happy! yay!
 
-pip install -r requirements.txt
-```
+## 💝 Thanks to
 
-### Build:
+- [Élise Souche](https://github.com/elisesouche)
+- [Lia Nkrichronos](https://github.com/liavnk)
 
-```bash
-./build.py
-```
+&nbsp;
 
-The theme is built in `./_build/theme`.
+<p align="center">
+ <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
+</p>
 
-### Installing the theme
+<p align="center">
+ Copyright &copy; 2025-present<br><a href="https://irisnk.me/" target="_blank">Iris Nkrichronos</a>, Élise Souche and contributors</a>
+</p>
 
-You can simply copy the contents of `./_build/theme` or symlink them to a folder in `~/.themes/` like `~/.themes/catppuccin-gnome` (or some other name). Then you can apply the theme like any regular GNOME shell theme!
+<p align="center">
+ <a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+</p>
