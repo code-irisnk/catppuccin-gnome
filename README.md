@@ -44,23 +44,23 @@
 - [user-themes](https://extensions.gnome.org/extension/19/user-themes/)*
 
 #### debian
-`sudo su - && apt update && apt install python3-full python3-pip`
+`sudo su - && apt update && apt install python3-full python3-pip python3-pipx`
 
 #### fedora
-`sudo dnf install python3-pip`
+`sudo dnf install python3-pip python3-pipx`
 
 #### arch
-`sudo pacman -Sy python python-pip python-libsass python-diff-match-patch`
+`sudo pacman -Sy python python-pip python-pipx python-libsass python-diff-match-patch`
 
 #### void
-`sudo xbps-install -S python3 python3-pip`
+`sudo xbps-install -S python3 python3-pip python3-pipx`
 
 ## Usage
 
 1. Clone the repo:  
    `export TMP=$(mktemp -d) && git clone --recurse-submodules -j2 https://github.com/code-irisnk/gnome-catppuccin.git "$TMP" && cd "$TMP"`
 2. Prepare environment:  
-   `pipenv lock && pipenv install --deploy && pipenv shell`
+   `pipx install pipenv && pipenv lock && pipenv install --deploy && pipenv shell`
 3. Pick a flavour and run the script:  
    `./build.py -t mocha`  
    _^ theme can be found in "~/.themes/"_

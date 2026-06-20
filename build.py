@@ -32,6 +32,7 @@ def check_args():
   CSS_PATH = f"{OUT_GNOME_PATH}/gnome-shell.css"
   print(f"Selected flavour: {FLAVOUR}")
 
+
 def mk_patch(file: str):
   dmp = diff_match_patch()
   with open(f"./gnome-shell/data/theme/gnome-shell-sass/_{file}.scss", "r") as old:
@@ -89,51 +90,51 @@ def edit_palette():
   global FLAVOUR
   with open(palette_path, "a") as file:
     file.write(f"""
-      $blue_1: ${FLAVOUR}-sky;
-      $blue_2: ${FLAVOUR}-sapphire;
-      $blue_3: ${FLAVOUR}-sapphire;
-      $blue_4: ${FLAVOUR}-blue;
-      $blue_5: ${FLAVOUR}-blue;
-      $green_1: ${FLAVOUR}-teal;
-      $green_2: ${FLAVOUR}-green;
-      $green_3: ${FLAVOUR}-green;
-      $green_4: ${FLAVOUR}-green;
-      $green_5: ${FLAVOUR}-green;
-      $yellow_1: ${FLAVOUR}-yellow;
-      $yellow_2: ${FLAVOUR}-yellow;
-      $yellow_3: ${FLAVOUR}-yellow;
-      $yellow_4: ${FLAVOUR}-yellow;
-      $yellow_5: ${FLAVOUR}-peach;
-      $orange_1: ${FLAVOUR}-peach;
-      $orange_2: ${FLAVOUR}-peach;
-      $orange_3: ${FLAVOUR}-peach;
-      $orange_4: ${FLAVOUR}-peach;
-      $orange_5: ${FLAVOUR}-peach;
-      $red_1: ${FLAVOUR}-red;
-      $red_2: ${FLAVOUR}-red;
-      $red_3: ${FLAVOUR}-red;
-      $red_4: ${FLAVOUR}-red;
-      $red_5: ${FLAVOUR}-red;
-      $purple_1: ${FLAVOUR}-mauve;
-      $purple_2: ${FLAVOUR}-mauve;
-      $purple_3: ${FLAVOUR}-mauve;
-      $purple_4: ${FLAVOUR}-mauve;
-      $purple_5: ${FLAVOUR}-mauve;
-      $brown_1: ${FLAVOUR}-maroon;
-      $brown_3: ${FLAVOUR}-maroon;
-      $brown_4: ${FLAVOUR}-maroon;
-      $brown_5: ${FLAVOUR}-maroon;
-      $light_1: ${FLAVOUR}-text;
-      $light_2: ${FLAVOUR}-subtext1;
-      $light_3: ${FLAVOUR}-subtext0;
-      $light_4: ${FLAVOUR}-overlay2;
-      $light_5: ${FLAVOUR}-overlay1;
-      $dark_1: ${FLAVOUR}-surface2;
-      $dark_2: ${FLAVOUR}-surface1;
-      $dark_3: ${FLAVOUR}-surface0;
-      $dark_4: ${FLAVOUR}-base;
-      $dark_5: ${FLAVOUR}-crust;
-    """)
+    $blue_1: ${FLAVOUR}-sky;
+    $blue_2: ${FLAVOUR}-sapphire;
+    $blue_3: ${FLAVOUR}-sapphire;
+    $blue_4: ${FLAVOUR}-blue;
+    $blue_5: ${FLAVOUR}-blue;
+    $green_1: ${FLAVOUR}-teal;
+    $green_2: ${FLAVOUR}-green;
+    $green_3: ${FLAVOUR}-green;
+    $green_4: ${FLAVOUR}-green;
+    $green_5: ${FLAVOUR}-green;
+    $yellow_1: ${FLAVOUR}-yellow;
+    $yellow_2: ${FLAVOUR}-yellow;
+    $yellow_3: ${FLAVOUR}-yellow;
+    $yellow_4: ${FLAVOUR}-yellow;
+    $yellow_5: ${FLAVOUR}-peach;
+    $orange_1: ${FLAVOUR}-peach;
+    $orange_2: ${FLAVOUR}-peach;
+    $orange_3: ${FLAVOUR}-peach;
+    $orange_4: ${FLAVOUR}-peach;
+    $orange_5: ${FLAVOUR}-peach;
+    $red_1: ${FLAVOUR}-red;
+    $red_2: ${FLAVOUR}-red;
+    $red_3: ${FLAVOUR}-red;
+    $red_4: ${FLAVOUR}-red;
+    $red_5: ${FLAVOUR}-red;
+    $purple_1: ${FLAVOUR}-mauve;
+    $purple_2: ${FLAVOUR}-mauve;
+    $purple_3: ${FLAVOUR}-mauve;
+    $purple_4: ${FLAVOUR}-mauve;
+    $purple_5: ${FLAVOUR}-mauve;
+    $brown_1: ${FLAVOUR}-maroon;
+    $brown_3: ${FLAVOUR}-maroon;
+    $brown_4: ${FLAVOUR}-maroon;
+    $brown_5: ${FLAVOUR}-maroon;
+    $light_1: ${FLAVOUR}-text;
+    $light_2: ${FLAVOUR}-subtext1;
+    $light_3: ${FLAVOUR}-subtext0;
+    $light_4: ${FLAVOUR}-overlay2;
+    $light_5: ${FLAVOUR}-overlay1;
+    $dark_1: ${FLAVOUR}-surface2;
+    $dark_2: ${FLAVOUR}-surface1;
+    $dark_3: ${FLAVOUR}-surface0;
+    $dark_4: ${FLAVOUR}-base;
+    $dark_5: ${FLAVOUR}-crust;
+  """)
   apply_patch("default-colors")
   apply_patch("colors")
 
