@@ -1,3 +1,6 @@
 [submodule "gnome-shell"]
 	path = gnome-shell
 	url = https://gitlab.gnome.org/GNOME/gnome-shell.git/
+[submodule "adw-gtk3"]
+	path = adw-gtk3
+	url = https://github.com/lassekongo83/adw-gtk3.git
